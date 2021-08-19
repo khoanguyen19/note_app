@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
+app.use(express.static('build'));
 app.use(cors());
 
 let notes = [
@@ -26,10 +27,6 @@ let notes = [
         important: true
     }
 ]
-
-app.get('/', (req, res) => {
-    res.send('<h1>Hello World</h1>');
-})
 
 app.get('/api/notes/:id', (req, res) => {
     const id = Number(req.params.id);
