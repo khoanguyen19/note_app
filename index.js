@@ -79,6 +79,7 @@ app.get('/api/notes', (req, res) => {
     res.json(notes);
 })
 
-const PORT = 3001;
-app.listen(PORT);
-console.log(`listening on port ${PORT}`);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
